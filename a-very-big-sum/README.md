@@ -9,9 +9,10 @@ The first line of the input consists of an integer N. The next line contains N  
 Print a single value equal to the sum of the elements in the array.
 
 ## Constraints 
+```
  1 <= N <= 10
  0 <= A[i] <= 10^10
-
+```
 ## Sample Input
 ```
 5
