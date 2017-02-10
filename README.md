@@ -14,5 +14,10 @@ The idea is to practice solving algorithm problems in Go, and then port them to 
 
 [Challenges](https://codility.com/programmers/challenges/)
 
+#### Potential others
+https://www.interviewbit.com/courses/programming/
+
+
+
 
 
