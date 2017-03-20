@@ -10,25 +10,21 @@ func printArray(array []int) {
 }
 
 func main() {
-	var size, toInsert int
+	var size, toInsert, i int
 	fmt.Scan(&size)
 	array := make([]int, size)
-	for i := 0; i < size; i++ {
+	for i = 0; i < size; i++ {
 		fmt.Scan(&array[i])
 	}
 	toInsert = array[size-1]
-	for i := size - 2; i >= 0; i-- {
+	for i = size - 2; i >= 0; i-- {
 		if array[i] > toInsert {
 			array[i+1] = array[i]
-			if i == 0 {
-				printArray(array)
-				array[i] = toInsert
-			}
-
-		} else if array[i] < toInsert {
-			array[i+1] = toInsert
-			i = -1
+			printArray(array)
+		} else {
+			break
 		}
-		printArray(array)
 	}
+	array[i+1] = toInsert
+	printArray(array)
 }
