@@ -11,9 +11,19 @@ import (
 
 // Complete the birthdayCakeCandles function below.
 func birthdayCakeCandles(ar []int32) int32 {
-
-
-}
+	var count int32
+	var highest int32
+	for _,height := range ar {
+	  if height > highest {
+		highest = height
+		count = 0 
+	  }
+	  if height == highest {
+		count++
+	  }
+	}
+	return count
+  }
 
 func main() {
     reader := bufio.NewReaderSize(os.Stdin, 1024 * 1024)
