@@ -11,7 +11,20 @@ import (
 
 // Complete the sockMerchant function below.
 func sockMerchant(n int32, ar []int32) int32 {
-
+    var pairCount int32
+    var needsPair map[int32]bool
+    needsPair = make(map[int32]bool)
+    for i := int32(0); i < n; i++ {
+        // check if int32 is in the hash (has a pair already waiting)
+        matching, ok := needsPair[ar[i]]
+        if ok && matching {
+            pairCount++
+            delete(needsPair,ar[i])
+        } else {
+            needsPair[ar[i]] = true
+        }
+    }
+    return pairCount
 }
 
 func main() {
