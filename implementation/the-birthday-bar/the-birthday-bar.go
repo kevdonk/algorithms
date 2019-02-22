@@ -11,8 +11,21 @@ import (
 
 // Complete the birthday function below.
 func birthday(s []int32, d int32, m int32) int32 {
-
-
+    correctSumCount := int32(0)
+    var sum int32
+    for i := int32(0); i < int32(len(s)) - (m - int32(1)); i++ {
+        sum = 0
+        for x := int32(0); x < m; x++ {
+            sum += s[i+x]
+            if sum > d {
+                break
+            }
+        }
+        if sum == d {
+            correctSumCount++
+        }
+    }
+    return correctSumCount
 }
 
 func main() {
