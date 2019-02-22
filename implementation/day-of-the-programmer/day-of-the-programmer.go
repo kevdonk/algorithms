@@ -11,8 +11,22 @@ import (
 
 // Complete the dayOfProgrammer function below.
 func dayOfProgrammer(year int32) string {
-
-
+	sumOfOtherMonths := int32(31+31+30+31+30+31+31)
+	febDays := int32(28)
+	switch {
+	case year < 1918:
+		if (year % 4) {
+			febDays = int32(29)
+		}
+	case year == 1918:
+		febDays = int32(29-14)
+	case year > 1918:
+		if (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0) {
+			febDays = int32(29)
+		}
+	}
+	day := 256 - (febDays + sumOfOtherMonths)
+	return fmt.Sprintf("%0d.09.%v", day, year)
 }
 
 func main() {
