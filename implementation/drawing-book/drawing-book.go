@@ -13,10 +13,17 @@ import (
  * Complete the pageCount function below.
  */
 func pageCount(n int32, p int32) int32 {
-    /*
-     * Write your code here.
-     */
-
+    fromFront := int32(math.Round((float64(p)-1)/2))
+    var offset float64
+    if n % 2 != 0 && n != p {
+        offset = -1
+    } 
+    fromBack := int32(math.Round(((float64(n)+offset) - float64(p))/2))
+    if fromFront < fromBack {
+        return fromFront
+    } else {
+        return fromBack
+    }
 }
 
 func main() {
