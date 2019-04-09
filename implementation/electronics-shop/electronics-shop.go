@@ -17,7 +17,6 @@ func getMoneySpent(keyboards []int32, drives []int32, b int32) int32 {
 	var keyboard, current, highest int32
 	sort.Slice(keyboards, func(i, j int) bool { return keyboards[j] < keyboards[i] })
 	sort.Slice(drives, func(i, j int) bool { return drives[j] < drives[i] })
-	fmt.Printf("%v | %v", keyboards, drives)
 	for k := 0; k < len(keyboards); k++ {
 		if keyboards[k] < b {
 			keyboard = keyboards[k]
@@ -26,8 +25,12 @@ func getMoneySpent(keyboards []int32, drives []int32, b int32) int32 {
 				if current == b {
 					return b
 				}
+				if current < highest {
+					break
+				}
 				if current < b && current > highest {
 					highest = current
+					break
 				}
 			}
 		}
