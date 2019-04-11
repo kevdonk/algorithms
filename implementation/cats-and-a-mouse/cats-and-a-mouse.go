@@ -9,9 +9,24 @@ import (
 	"strings"
 )
 
+func abs(a int32) int32 {
+	if a < 0 {
+		return -a
+	}
+	return a
+}
+
 // Complete the catAndMouse function below.
 func catAndMouse(x int32, y int32, z int32) string {
-
+	diffA := abs(z - x)
+	diffB := abs(z - y)
+	if diffA < diffB {
+		return "Cat A"
+	}
+	if diffB < diffA {
+		return "Cat B"
+	}
+	return "Mouse C"
 }
 
 func main() {
