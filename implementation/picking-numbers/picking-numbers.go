@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -17,8 +18,36 @@ import (
  */
 
 func pickingNumbers(a []int32) int32 {
-	// Write your code here
-
+	var highest int32
+	counts := make(map[int32]int32)
+	numbers := make([]int32, 0)
+	for i := 0; i < len(a); i++ {
+		counts[a[i]]++
+	}
+	for number, _ := range counts {
+		numbers = append(numbers, number)
+	}
+	sort.Slice(numbers, func(i, j int) bool { return numbers[i] < numbers[j] })
+	highest = counts[numbers[0]]
+	for n := int32(1); n < int32(len(numbers)); n++ {
+		var current int32
+		diff := numbers[n] - numbers[n-1]
+		if diff != int32(1) {
+			// highest of the counts
+			if counts[n] > counts[n-1] {
+				current = counts[numbers[n]]
+			} else {
+				current = counts[numbers[n-1]]
+			}
+		} else {
+			// sum of the counts
+			current = counts[numbers[n]] + counts[numbers[n-1]]
+		}
+		if current > highest {
+			highest = current
+		}
+	}
+	return highest
 }
 
 func main() {
