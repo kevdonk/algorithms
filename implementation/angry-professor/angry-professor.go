@@ -11,6 +11,17 @@ import (
 
 // Complete the angryProfessor function below.
 func angryProfessor(k int32, a []int32) string {
+	count := int32(0)
+	for _, arrival := range a {
+		if arrival <= int32(0) {
+			count++
+		}
+		if count == k {
+			return "NO"
+			break
+		}
+	}
+	return "YES"
 
 }
 
