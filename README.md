@@ -18,6 +18,11 @@ The idea is to practice solving algorithm problems in Go, and then port them to 
 https://www.interviewbit.com/courses/programming/
 
 
+###### get certs
+https://www.hackerrank.com/skills-verification/javascript_intermediate
+https://www.hackerrank.com/skills-verification/golang_basic
+https://www.hackerrank.com/skills-verification/golang_intermediate
 
+and the rest
 
 
