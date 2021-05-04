@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"io"
+	"math"
 	"os"
 	"strconv"
 	"strings"
@@ -17,8 +18,15 @@ import (
  */
 
 func viralAdvertising(n int32) int32 {
-	// Write your code here
-
+	shared := float64(5)
+	likes := float64(0)
+	var rate float64
+	for i := float64(0); i < float64(n); i++ {
+		rate = math.Floor(shared / 2)
+		likes += rate
+		shared = rate * 3
+	}
+	return int32(likes)
 }
 
 func main() {
